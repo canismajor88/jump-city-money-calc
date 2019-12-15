@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace JumpCityMoneyCalculator
 {
     partial class JumpCityMoneyCalculator
     {

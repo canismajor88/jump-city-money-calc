@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace WindowsFormsApp2
+﻿namespace WindowsFormsApp2
 {
     public class Calculator
     {

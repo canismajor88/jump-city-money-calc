@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2;
 
-namespace WindowsFormsApp2
+namespace JumpCityMoneyCalculator
 {
     public partial class JumpCityMoneyCalculator : Form
     {
