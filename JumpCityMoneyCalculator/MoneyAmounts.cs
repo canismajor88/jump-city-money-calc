@@ -57,6 +57,7 @@
             FivesAmount = 0;
 
             OnesAmount = 0;
+
             TotalAmount = 0;
         }
     }

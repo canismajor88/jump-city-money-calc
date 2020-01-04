@@ -3,8 +3,8 @@
     public class BillHandler
     {
         private readonly MoneyAmounts _moneyAmounts;
+        private string _outputText = string.Empty;
         private int _truncatedDropTotal;
-        private string _outputText="";
 
         public BillHandler(MoneyAmounts moneyAmounts)
         {
@@ -16,19 +16,22 @@
         private bool RegisterStateCheck()
         {
             var smallBillAmount = 0;
-            smallBillAmount = _moneyAmounts.TwentiesAmount * 20 +_moneyAmounts.TensAmount*10+ _moneyAmounts.FivesAmount * 5 +
+            smallBillAmount = _moneyAmounts.TwentiesAmount * 20 +
+                              _moneyAmounts.TensAmount * 10 +
+                              _moneyAmounts.FivesAmount * 5 +
                               _moneyAmounts.OnesAmount;
 
             if (_moneyAmounts.TotalAmount < _moneyAmounts.TargetRegisterAmount)
             {
-                _outputText="register has less than "+_moneyAmounts.TargetRegisterAmount+" dollars, the register must be fixed.";
+                _outputText =
+                    $"register has less than {_moneyAmounts.TargetRegisterAmount} dollars, the register must be fixed.";
 
                 return false;
             }
 
             if (smallBillAmount < _moneyAmounts.TargetRegisterAmount)
             {
-                _outputText="go to safe and break large bills and then use form again.";
+                _outputText = "go to safe and break large bills and then use form again.";
                 return false;
             }
 
@@ -53,16 +56,12 @@
         public string BillAmountsForDrop()
         {
             if (RegisterStateCheck())
-            {
-                
                 _outputText = "Take Out " + BillAmountsProcessor(_moneyAmounts.HundredsAmount, 100) + " hundreds, "
-                             + BillAmountsProcessor(_moneyAmounts.FiftiesAmount, 50) + " fifties, " +
-                             BillAmountsProcessor(_moneyAmounts.TwentiesAmount, 20) + " twenties, "
-                             + BillAmountsProcessor(_moneyAmounts.TensAmount, 10) + " tens, " +
-                             BillAmountsProcessor(_moneyAmounts.FivesAmount, 5) + " fives,and " +
-                             BillAmountsProcessor(_moneyAmounts.OnesAmount, 1) + " ones.";
-
-            }
+                              + BillAmountsProcessor(_moneyAmounts.FiftiesAmount, 50) + " fifties, " +
+                              BillAmountsProcessor(_moneyAmounts.TwentiesAmount, 20) + " twenties, "
+                              + BillAmountsProcessor(_moneyAmounts.TensAmount, 10) + " tens, " +
+                              BillAmountsProcessor(_moneyAmounts.FivesAmount, 5) + " fives,and " +
+                              BillAmountsProcessor(_moneyAmounts.OnesAmount, 1) + " ones.";
             return _outputText;
         }
     }
