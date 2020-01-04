@@ -6,10 +6,16 @@ namespace JumpCityMoneyCalculator
 {
     public partial class JumpCityMoneyCalculator : Form
     {
-        private readonly MoneyAmounts _moneyAmounts = new MoneyAmounts();
+        private readonly BillHandler _billHandler;
+        private readonly Calculator _calculator;
+        private readonly MoneyAmounts _moneyAmounts;
 
-        public JumpCityMoneyCalculator()
+        public JumpCityMoneyCalculator(MoneyAmounts moneyAmounts, Calculator calculator, BillHandler billHandler)
         {
+            _moneyAmounts = moneyAmounts;
+            _calculator = calculator;
+            _billHandler = billHandler;
+
             InitializeComponent();
         }
 
@@ -22,9 +28,9 @@ namespace JumpCityMoneyCalculator
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             DataSetter();
-            var totals = new Calculator(_moneyAmounts);
 
-            txtTotal.Text = $"{Convert.ToDouble(totals.GetDropTotal()):C}";
+
+            txtTotal.Text = $"{Convert.ToDouble(_calculator.GetDropTotal()):C}";
             btnBillAmounts.Enabled = true;
         }
 
@@ -86,8 +92,7 @@ namespace JumpCityMoneyCalculator
 
         private void btnBillAmounts_Click(object sender, EventArgs e)
         {
-            var billHandler = new BillHandler(_moneyAmounts);
-            MessageBox.Show(billHandler.BillAmountsForDrop());
+            MessageBox.Show(_billHandler.BillAmountsForDrop());
         }
     }
 }

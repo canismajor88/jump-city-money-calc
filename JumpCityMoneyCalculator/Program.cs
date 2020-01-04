@@ -11,9 +11,13 @@ namespace WindowsFormsApp2
         [STAThread]
         private static void Main()
         {
+            var moneyAmount = new MoneyAmounts();
+            var calculator = new Calculator(moneyAmount);
+            var billHandler = new BillHandler(moneyAmount);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JumpCityMoneyCalculator.JumpCityMoneyCalculator());
+            Application.Run(new JumpCityMoneyCalculator.JumpCityMoneyCalculator(moneyAmount,calculator,billHandler));
         }
     }
 }
