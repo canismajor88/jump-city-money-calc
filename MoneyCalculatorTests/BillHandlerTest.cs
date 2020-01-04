@@ -15,7 +15,7 @@ namespace MoneyCalculatorTests
             var moneyAmounts = TestHelper.BuildMoneyAmounts(1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1,_registerTotal);
             
             var sut = new BillHandler(moneyAmounts);
-            var expected = "register has less than " + moneyAmounts.targetRegisterAmount + " dollars, the register must be fixed.";
+            var expected = "register has less than " + moneyAmounts.TargetRegisterAmount + " dollars, the register must be fixed.";
             string actual = sut.BillAmountsForDrop();
             Assert.AreEqual(expected, actual);
         }

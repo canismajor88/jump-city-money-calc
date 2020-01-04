@@ -19,14 +19,14 @@
             smallBillAmount = _moneyAmounts.TwentiesAmount * 20 +_moneyAmounts.TensAmount*10+ _moneyAmounts.FivesAmount * 5 +
                               _moneyAmounts.OnesAmount;
 
-            if (_moneyAmounts.TotalAmount < _moneyAmounts.targetRegisterAmount)
+            if (_moneyAmounts.TotalAmount < _moneyAmounts.TargetRegisterAmount)
             {
-                _outputText="register has less than "+_moneyAmounts.targetRegisterAmount+" dollars, the register must be fixed.";
+                _outputText="register has less than "+_moneyAmounts.TargetRegisterAmount+" dollars, the register must be fixed.";
 
                 return false;
             }
 
-            if (smallBillAmount < _moneyAmounts.targetRegisterAmount)
+            if (smallBillAmount < _moneyAmounts.TargetRegisterAmount)
             {
                 _outputText="go to safe and break large bills and then use form again.";
                 return false;
@@ -38,10 +38,10 @@
         private int BillAmountsProcessor(int billAmount, int billWorth)
         {
             int i;
-            for (i = 0; i != billAmount && _truncatedDropTotal > _moneyAmounts.targetRegisterAmount; i++)
+            for (i = 0; i != billAmount && _truncatedDropTotal > _moneyAmounts.TargetRegisterAmount; i++)
                 _truncatedDropTotal -= billWorth;
             //put the bill back
-            if (_truncatedDropTotal < _moneyAmounts.targetRegisterAmount)
+            if (_truncatedDropTotal < _moneyAmounts.TargetRegisterAmount)
             {
                 i--;
                 _truncatedDropTotal += billWorth;
