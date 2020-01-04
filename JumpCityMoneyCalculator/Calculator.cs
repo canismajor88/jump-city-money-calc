@@ -2,7 +2,7 @@
 {
     public class Calculator
     {
-        private MoneyAmounts _moneyAmounts = new MoneyAmounts();
+        private readonly MoneyAmounts _moneyAmounts;
 
         public Calculator( MoneyAmounts moneyAmounts)
         {

@@ -16,12 +16,12 @@
         private bool RegisterStateCheck()
         {
             var smallBillAmount = 0;
-            smallBillAmount = _moneyAmounts.TwentiesAmount * 20 + _moneyAmounts.FivesAmount * 5 +
+            smallBillAmount = _moneyAmounts.TwentiesAmount * 20 +_moneyAmounts.TensAmount*10+ _moneyAmounts.FivesAmount * 5 +
                               _moneyAmounts.OnesAmount;
 
             if (_moneyAmounts.TotalAmount < _moneyAmounts.targetRegisterAmount)
             {
-                _outputText="register has less than $100 dollars, the register must be fixed.";
+                _outputText="register has less than "+_moneyAmounts.targetRegisterAmount+" dollars, the register must be fixed.";
 
                 return false;
             }
@@ -54,11 +54,12 @@
         {
             if (RegisterStateCheck())
             {
+                
                 _outputText = "Take Out " + BillAmountsProcessor(_moneyAmounts.HundredsAmount, 100) + " hundreds, "
                              + BillAmountsProcessor(_moneyAmounts.FiftiesAmount, 50) + " fifties, " +
                              BillAmountsProcessor(_moneyAmounts.TwentiesAmount, 20) + " twenties, "
                              + BillAmountsProcessor(_moneyAmounts.TensAmount, 10) + " tens, " +
-                             BillAmountsProcessor(_moneyAmounts.FiftiesAmount, 5) + " fives,and " +
+                             BillAmountsProcessor(_moneyAmounts.FivesAmount, 5) + " fives,and " +
                              BillAmountsProcessor(_moneyAmounts.OnesAmount, 1) + " ones.";
 
             }

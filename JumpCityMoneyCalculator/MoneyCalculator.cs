@@ -13,21 +13,21 @@ namespace JumpCityMoneyCalculator
 {
     public partial class JumpCityMoneyCalculator : Form
     {
-        private MoneyAmounts moneyAmounts = new MoneyAmounts();
+        private readonly MoneyAmounts _moneyAmounts = new MoneyAmounts();
         public JumpCityMoneyCalculator()
         {
             InitializeComponent();
         }
         private void JumpCityMoneyCalculator_Load(object sender, EventArgs e)
         {
-
+            MessageBox.Show(@"This form is a work in progress and does not represent final product, if there any problems or issues please contact Caleb ");
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             
             DataSetter();
-            Calculator Totals = new Calculator(moneyAmounts);
+            Calculator Totals = new Calculator(_moneyAmounts);
 
            txtTotal.Text = $"{Convert.ToDouble(Totals.GetDropTotal()):C}";
             btnBillAmounts.Enabled = true;
@@ -35,20 +35,20 @@ namespace JumpCityMoneyCalculator
 
         public void DataSetter()
         {
-            moneyAmounts.DollarCoinAmount = ToIntAndNonNegitive(txtDollarCoins.Text);
-            moneyAmounts.HalfDollarAmount = ToIntAndNonNegitive(txtHalfDollars.Text);
-            moneyAmounts.QuartersAmount = ToIntAndNonNegitive(txtQuarters.Text);
-            moneyAmounts.DimesAmount = ToIntAndNonNegitive(txtDimes.Text);
-            moneyAmounts.NicklesAmount = ToIntAndNonNegitive(txtNickles.Text);
-            moneyAmounts.PenniesAmount = ToIntAndNonNegitive(txtPennies.Text);
-            moneyAmounts.HundredsAmount = ToIntAndNonNegitive(txtHundreds.Text);
-            moneyAmounts.FiftiesAmount = ToIntAndNonNegitive(txtFiftys.Text);
-            moneyAmounts.TwentiesAmount = ToIntAndNonNegitive(txtTwenties.Text);
-            moneyAmounts.TensAmount = ToIntAndNonNegitive(txtTens.Text);
-            moneyAmounts.FivesAmount = ToIntAndNonNegitive(txtFives.Text);
-            moneyAmounts.OnesAmount = ToIntAndNonNegitive(txtOnes.Text);
+            _moneyAmounts.DollarCoinAmount = ToIntAndNonNegative(txtDollarCoins.Text);
+            _moneyAmounts.HalfDollarAmount = ToIntAndNonNegative(txtHalfDollars.Text);
+            _moneyAmounts.QuartersAmount = ToIntAndNonNegative(txtQuarters.Text);
+            _moneyAmounts.DimesAmount = ToIntAndNonNegative(txtDimes.Text);
+            _moneyAmounts.NicklesAmount = ToIntAndNonNegative(txtNickles.Text);
+            _moneyAmounts.PenniesAmount = ToIntAndNonNegative(txtPennies.Text);
+            _moneyAmounts.HundredsAmount = ToIntAndNonNegative(txtHundreds.Text);
+            _moneyAmounts.FiftiesAmount = ToIntAndNonNegative(txtFiftys.Text);
+            _moneyAmounts.TwentiesAmount = ToIntAndNonNegative(txtTwenties.Text);
+            _moneyAmounts.TensAmount = ToIntAndNonNegative(txtTens.Text);
+            _moneyAmounts.FivesAmount = ToIntAndNonNegative(txtFives.Text);
+            _moneyAmounts.OnesAmount = ToIntAndNonNegative(txtOnes.Text);
         }
-        public int ToIntAndNonNegitive(string input)
+        public int ToIntAndNonNegative(string input)
         {
 
             try
@@ -56,7 +56,7 @@ namespace JumpCityMoneyCalculator
                 int result = Int32.Parse(input);
                 if (result < 0)
                 {
-                    MessageBox.Show("Please enter positive numerical values,setting entered value to 0");
+                    MessageBox.Show(@"Please enter positive numerical values,setting entered value to 0");
                     result = 0;
                 }
                 return result;
@@ -68,7 +68,7 @@ namespace JumpCityMoneyCalculator
                 {
                     return 0;
                 }
-                MessageBox.Show("Please enter numerical values,setting entered value to 0");
+                MessageBox.Show(@"Please enter numerical values,setting entered value to 0",@"Error");
                 return 0;
             }
 
@@ -90,13 +90,13 @@ namespace JumpCityMoneyCalculator
             txtOnes.Text = "";
             txtTotal.Text = "";
             btnBillAmounts.Enabled = false;
-            moneyAmounts.Clear();
+            _moneyAmounts.Clear();
 
         }
 
         private void btnBillAmounts_Click(object sender, EventArgs e)
         {
-            BillHandler billHandler = new BillHandler(moneyAmounts);
+            BillHandler billHandler = new BillHandler(_moneyAmounts);
             MessageBox.Show(billHandler.BillAmountsForDrop());
            
         }
