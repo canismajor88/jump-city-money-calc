@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpCityMoneyCalculator", "JumpCityMoneyCalculator.csproj", "{A47E9850-819F-4AD9-BC11-EF855DB4EDD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyCalculatorTests", "..\MoneyCalculatorTests\MoneyCalculatorTests.csproj", "{A13B192C-6DC0-4ADF-A2F9-46F120B84098}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A47E9850-819F-4AD9-BC11-EF855DB4EDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A47E9850-819F-4AD9-BC11-EF855DB4EDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A47E9850-819F-4AD9-BC11-EF855DB4EDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13B192C-6DC0-4ADF-A2F9-46F120B84098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13B192C-6DC0-4ADF-A2F9-46F120B84098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13B192C-6DC0-4ADF-A2F9-46F120B84098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13B192C-6DC0-4ADF-A2F9-46F120B84098}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
