@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsFormsApp2;
+using RegisterDropCalculator;
 
 namespace JumpCityMoneyCalculator
 {

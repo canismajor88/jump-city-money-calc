@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpCityMoneyCalculator", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyCalculatorTests", "..\MoneyCalculatorTests\MoneyCalculatorTests.csproj", "{A13B192C-6DC0-4ADF-A2F9-46F120B84098}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterDropCalculator", "..\RegisterDropCalculator\RegisterDropCalculator.csproj", "{98B9A6C5-DF16-4EE9-8673-C3DA04239B4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A13B192C-6DC0-4ADF-A2F9-46F120B84098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A13B192C-6DC0-4ADF-A2F9-46F120B84098}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A13B192C-6DC0-4ADF-A2F9-46F120B84098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B9A6C5-DF16-4EE9-8673-C3DA04239B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B9A6C5-DF16-4EE9-8673-C3DA04239B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B9A6C5-DF16-4EE9-8673-C3DA04239B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B9A6C5-DF16-4EE9-8673-C3DA04239B4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -60,13 +60,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JumpCityMoneyCalculator\JumpCityMoneyCalculator.csproj">
-      <Project>{a47e9850-819f-4ad9-bc11-ef855db4edd4}</Project>
-      <Name>JumpCityMoneyCalculator</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\RegisterDropCalculator\RegisterDropCalculator.csproj">
+      <Project>{98b9a6c5-df16-4ee9-8673-c3da04239b4c}</Project>
+      <Name>RegisterDropCalculator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

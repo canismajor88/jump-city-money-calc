@@ -1,5 +1,4 @@
-﻿using WindowsFormsApp2;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NUnit.Framework.Internal;
 
 namespace MoneyCalculatorTests
@@ -7,14 +6,15 @@ namespace MoneyCalculatorTests
     [TestFixture]
     public class MoneyAmountsTests
     {
-        private double _registerTotal = 1;//amount register is supposed to be at for drop
+        private double _registerTotal = 1; //amount register is supposed to be at for drop
+
         [Test]
         public void TestMoneyAmountClear()
         {
-            var moneyAmounts = TestHelper.BuildMoneyAmounts(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,_registerTotal);
+            var moneyAmounts = TestHelper.BuildMoneyAmounts(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, _registerTotal);
             moneyAmounts.Clear();
             var expected = 0;
-            
+
             Assert.AreEqual(expected, moneyAmounts.DollarCoinAmount);
             Assert.AreEqual(expected, moneyAmounts.HalfDollarAmount);
             Assert.AreEqual(expected, moneyAmounts.QuartersAmount);

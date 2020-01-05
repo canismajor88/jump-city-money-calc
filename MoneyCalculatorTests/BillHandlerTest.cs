@@ -1,6 +1,7 @@
 ﻿using System;
-using WindowsFormsApp2;
+
 using NUnit.Framework;
+using RegisterDropCalculator;
 
 namespace MoneyCalculatorTests
 {

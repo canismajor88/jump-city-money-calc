@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApp2;
+using RegisterDropCalculator;
+
 
 namespace MoneyCalculatorTests
 {
-    static class  TestHelper
+    static class TestHelper
     {
         public static MoneyAmounts BuildMoneyAmounts(
             int numDollarCoins,
@@ -38,9 +39,8 @@ namespace MoneyCalculatorTests
                 TensAmount = numTens,
                 FivesAmount = numFives,
                 OnesAmount = numOnes,
-                TotalAmount=numTotal
+                TotalAmount = numTotal
             };
-
         }
     }
 }
