@@ -46,15 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillHandler.cs" />
-    <Compile Include="Calculator.cs" />
     <Compile Include="MoneyCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MoneyCalculator.Designer.cs">
       <DependentUpon>MoneyCalculator.cs</DependentUpon>
     </Compile>
-    <Compile Include="MoneyAmounts.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MoneyCalculator.resx">
@@ -81,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RegisterDropCalculator\RegisterDropCalculator.csproj">
+      <Project>{98b9a6c5-df16-4ee9-8673-c3da04239b4c}</Project>
+      <Name>RegisterDropCalculator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
