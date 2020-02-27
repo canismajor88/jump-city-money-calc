@@ -48,25 +48,36 @@ namespace JumpCityMoneyCalculator
             _moneyAmounts.OnesAmount = ToIntAndNonNegative(txtOnes.Text);
         }
 
+        // public int ToIntAndNonNegative(string input)
+        // {
+        //     try
+        //     {
+        //         var result = int.Parse(input);
+        //         if (result < 0)
+        //         {
+        //             AlertUser("Please enter positive numerical values,setting entered value to 0");
+        //             result = 0;
+        //         }
+        //
+        //         return result;
+        //     }
+        //     catch (FormatException)
+        //     {
+        //         if (input == string.Empty) return 0;
+        //         AlertUser("Please enter numerical values, setting entered value to 0", "Error");
+        //         return 0;
+        //     }
+        // }
+
         public int ToIntAndNonNegative(string input)
         {
-            try
-            {
-                var result = int.Parse(input);
-                if (result < 0)
-                {
-                    AlertUser("Please enter positive numerical values,setting entered value to 0");
-                    result = 0;
-                }
+            if (int.TryParse(input, out var result) && result >= 0) return result;
 
-                return result;
-            }
-            catch (FormatException)
-            {
-                if (input == string.Empty) return 0;
-                AlertUser("Please enter numerical values,setting entered value to 0", "Error");
-                return 0;
-            }
+            var output = string.IsNullOrEmpty(input) ? "blank" : input;
+
+            AlertUser($"Please enter a positive number: {output} is invalid");
+
+            return 0;
         }
 
         private static void AlertUser(string text, string caption = null)

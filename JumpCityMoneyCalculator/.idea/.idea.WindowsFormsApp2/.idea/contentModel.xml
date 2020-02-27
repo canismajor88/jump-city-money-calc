@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\projects\jump-city-money-calc\JumpCityMoneyCalculator" t="IncludeRecursive">
+    <e p="C:\Users\dgerman\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\dgerman\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WindowsFormsApp2.597568561.00" t="ExcludeRecursive" />
+    <e p="C:\Users\dgerman\Documents\GitHub\jump-city-money-calc\JumpCityMoneyCalculator" t="IncludeRecursive">
       <e p="App.config" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="JumpCityMoneyCalculator.csproj" t="IncludeRecursive" />
@@ -25,7 +27,7 @@
       </e>
       <e p="WindowsFormsApp2.sln" t="IncludeFlat" />
     </e>
-    <e p="C:\projects\jump-city-money-calc\MoneyCalculatorTests" t="IncludeRecursive">
+    <e p="C:\Users\dgerman\Documents\GitHub\jump-city-money-calc\MoneyCalculatorTests" t="IncludeRecursive">
       <e p="BillHandlerTest.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="CalculatorTests.cs" t="Include" />
@@ -38,7 +40,7 @@
       </e>
       <e p="TestHelper.cs" t="Include" />
     </e>
-    <e p="C:\projects\jump-city-money-calc\RegisterDropCalculator" t="IncludeRecursive">
+    <e p="C:\Users\dgerman\Documents\GitHub\jump-city-money-calc\RegisterDropCalculator" t="IncludeRecursive">
       <e p="BillHandler.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Calculator.cs" t="Include" />
@@ -49,7 +51,5 @@
       </e>
       <e p="RegisterDropCalculator.csproj" t="IncludeRecursive" />
     </e>
-    <e p="C:\Users\facme\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\facme\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WindowsFormsApp2.1564504926.00" t="ExcludeRecursive" />
   </component>
 </project>
