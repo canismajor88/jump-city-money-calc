@@ -17,6 +17,7 @@
         <e p="NUnit3TestAdapter.3.15.1\build\net35\NUnit3.TestAdapter.dll" t="Include" />
         <e p="NUnit3TestAdapter.3.15.1\build\net35\NUnit3.TestAdapter.pdb" t="Include" />
       </e>
+      <e p="packages.config" t="Include" />
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">
         <e p="AssemblyInfo.cs" t="Include" />
