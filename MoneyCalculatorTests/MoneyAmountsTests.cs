@@ -1,12 +1,11 @@
 ﻿using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace MoneyCalculatorTests
 {
     [TestFixture]
     public class MoneyAmountsTests
     {
-        private double _registerTotal = 1; //amount register is supposed to be at for drop
+        private readonly double _registerTotal = 1; //amount register is supposed to be at for drop
 
         [Test]
         public void TestMoneyAmountClear()

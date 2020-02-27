@@ -18,7 +18,7 @@ namespace WindowsFormsApp2
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JumpCityMoneyCalculator.JumpCityMoneyCalculator(moneyAmount,calculator,billHandler));
+            Application.Run(new JumpCityMoneyCalculator.JumpCityMoneyCalculator(moneyAmount, calculator, billHandler));
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class MoneyAmounts
     {
-        private const int TargetAmount = 100;
+        public const int TargetAmount = 100;
 
         public int DollarCoinAmount { get; set; }
 
@@ -29,8 +29,6 @@
         public int OnesAmount { get; set; }
 
         public double TotalAmount { get; set; }
-
-        public int TargetRegisterAmount => TargetAmount;
 
         public void Clear()
         {
