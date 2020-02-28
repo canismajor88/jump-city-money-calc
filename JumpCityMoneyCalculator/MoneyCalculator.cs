@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
-using WindowsFormsApp2;
 using RegisterDropCalculator;
 
 namespace JumpCityMoneyCalculator
 {
     public partial class JumpCityMoneyCalculator : Form
     {
-        private readonly BillHandler _billHandler;
-        private readonly Calculator _calculator;
+        //Solid, open closed, interfaces/abstract Classes help with form being open to extension but closed to modification
+        // in case need to change concrete classes that implement interface
+        private readonly IBillHandler _billHandler;
+        private readonly AbstractCalculator _calculator;
+
         private readonly MoneyAmounts _moneyAmounts;
 
-        public JumpCityMoneyCalculator(MoneyAmounts moneyAmounts, Calculator calculator, BillHandler billHandler)
+        //dependency injection using constructor injection
+        //dependency inversion principle (hide implementation details of other classes)
+        //program to an interface not an implementation (lowers coupling)
+        //makes testing easier
+        public JumpCityMoneyCalculator(MoneyAmounts moneyAmounts, AbstractCalculator calculator,
+            IBillHandler billHandler)
         {
             _moneyAmounts = moneyAmounts;
             _calculator = calculator;
@@ -22,14 +29,13 @@ namespace JumpCityMoneyCalculator
 
         private void JumpCityMoneyCalculator_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                @"This form is a work in progress and does not represent final product, if there any problems or issues please contact Caleb ");
+            AlertUser(
+                "This form is a work in progress and does not represent final product, if there any problems or issues please contact Caleb.");
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             DataSetter();
-
 
             txtTotal.Text = $"{Convert.ToDouble(_calculator.GetDropTotal()):C}";
             btnBillAmounts.Enabled = true;
@@ -58,7 +64,7 @@ namespace JumpCityMoneyCalculator
                 var result = int.Parse(input);
                 if (result < 0)
                 {
-                    MessageBox.Show("Please enter positive numerical values,setting entered value to 0");
+                    AlertUser("Please enter positive numerical values,setting entered value to 0");
                     result = 0;
                 }
 
@@ -67,33 +73,40 @@ namespace JumpCityMoneyCalculator
             catch (FormatException)
             {
                 if (input == string.Empty) return 0;
-                MessageBox.Show(@"Please enter numerical values,setting entered value to 0", @"Error");
+                AlertUser("Please enter numerical values, setting entered value to 0", "Error");
                 return 0;
             }
         }
 
+        //default param
+        //static allows for no instance to be created to use method
+        private static void AlertUser(string text, string caption = null)
+        {
+            MessageBox.Show(text, caption);
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtDollarCoins.Text = "";
-            txtHalfDollars.Text = "";
-            txtQuarters.Text = "";
-            txtDimes.Text = "";
-            txtNickles.Text = "";
-            txtPennies.Text = "";
-            txtHundreds.Text = "";
-            txtFiftys.Text = "";
-            txtTwenties.Text = "";
-            txtTens.Text = "";
-            txtFives.Text = "";
-            txtOnes.Text = "";
-            txtTotal.Text = "";
+            txtDollarCoins.Text = string.Empty;
+            txtHalfDollars.Text = string.Empty;
+            txtQuarters.Text = string.Empty;
+            txtDimes.Text = string.Empty;
+            txtNickles.Text = string.Empty;
+            txtPennies.Text = string.Empty;
+            txtHundreds.Text = string.Empty;
+            txtFiftys.Text = string.Empty;
+            txtTwenties.Text = string.Empty;
+            txtTens.Text = string.Empty;
+            txtFives.Text = string.Empty;
+            txtOnes.Text = string.Empty;
+            txtTotal.Text = string.Empty;
             btnBillAmounts.Enabled = false;
             _moneyAmounts.Clear();
         }
 
         private void btnBillAmounts_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_billHandler.BillAmountsForDrop());
+            AlertUser(_billHandler.BillAmountsForDrop());
         }
     }
 }

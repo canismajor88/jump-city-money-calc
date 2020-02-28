@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RegisterDropCalculator;
-
+﻿using RegisterDropCalculator;
 
 namespace MoneyCalculatorTests
 {
-    static class TestHelper
+    internal static class TestHelper
     {
         public static MoneyAmounts BuildMoneyAmounts(
             int numDollarCoins,
@@ -17,7 +11,7 @@ namespace MoneyCalculatorTests
             int numDimes,
             int numNickles,
             int numPennies,
-            int numHundrends,
+            int numHundreds,
             int numFifties,
             int numTwenties,
             int numTens,
@@ -33,7 +27,7 @@ namespace MoneyCalculatorTests
                 DimesAmount = numDimes,
                 NicklesAmount = numNickles,
                 PenniesAmount = numPennies,
-                HundredsAmount = numHundrends,
+                HundredsAmount = numHundreds,
                 FiftiesAmount = numFifties,
                 TwentiesAmount = numTwenties,
                 TensAmount = numTens,

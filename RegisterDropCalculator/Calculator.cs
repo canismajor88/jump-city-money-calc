@@ -1,6 +1,7 @@
 ﻿namespace RegisterDropCalculator
 {
-    public class Calculator
+    //child of AbstractCalc
+    public class Calculator:AbstractCalculator
     {
         private readonly MoneyAmounts _moneyAmounts;
 
@@ -9,7 +10,7 @@
             _moneyAmounts = moneyAmounts;
         }
 
-        public double GetDropTotal()
+        public override double GetDropTotal()
         {
             var coinAmount = _moneyAmounts.DollarCoinAmount + _moneyAmounts.HalfDollarAmount * .5 +
                              _moneyAmounts.QuartersAmount * .25 + _moneyAmounts.DimesAmount * .1 +

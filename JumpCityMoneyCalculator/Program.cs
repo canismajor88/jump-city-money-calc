@@ -1,24 +1,32 @@
 ﻿using System;
 using System.Windows.Forms;
 using RegisterDropCalculator;
+using Unity;
 
 namespace WindowsFormsApp2
 {
     internal static class Program
     {
-        /// <summary>
-        ///     The main entry point for the application.
-        /// </summary>
+        private static readonly UnityContainer Container = new UnityContainer();
+
+
         [STAThread]
         private static void Main()
         {
-            var moneyAmount = new MoneyAmounts();
-            var calculator = new Calculator(moneyAmount);
-            var billHandler = new BillHandler(moneyAmount);
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JumpCityMoneyCalculator.JumpCityMoneyCalculator(moneyAmount,calculator,billHandler));
+
+            ConfigureContainer();
+            Application.Run(Container.Resolve<JumpCityMoneyCalculator.JumpCityMoneyCalculator>());
+        }
+
+        private static void ConfigureContainer()
+        {
+            //new instance gets created each time 
+            Container.RegisterType<AbstractCalculator,Calculator>();
+            Container.RegisterType<IBillHandler, BillHandler>();
+            //create only one instance of money amounts
+            Container.RegisterSingleton<MoneyAmounts>();
         }
     }
 }
