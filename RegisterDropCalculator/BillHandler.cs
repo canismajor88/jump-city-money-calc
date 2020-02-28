@@ -1,6 +1,7 @@
 ﻿namespace RegisterDropCalculator
 {
-    public class BillHandler
+    //child/ implementation of IBillHanlder
+    public class BillHandler : IBillHandler
     {
         private readonly MoneyAmounts _moneyAmounts;
         private string _outputText = string.Empty;

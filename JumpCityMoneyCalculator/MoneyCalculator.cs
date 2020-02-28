@@ -6,11 +6,19 @@ namespace JumpCityMoneyCalculator
 {
     public partial class JumpCityMoneyCalculator : Form
     {
-        private readonly BillHandler _billHandler;
-        private readonly Calculator _calculator;
+        //Solid, open closed, interfaces/abstract Classes help with form being open to extension but closed to modification
+        // in case need to change concrete classes that implement interface
+        private readonly IBillHandler _billHandler;
+        private readonly AbstractCalculator _calculator;
+
         private readonly MoneyAmounts _moneyAmounts;
 
-        public JumpCityMoneyCalculator(MoneyAmounts moneyAmounts, Calculator calculator, BillHandler billHandler)
+        //dependency injection using constructor injection
+        //dependency inversion principle (hide implementation details of other classes)
+        //program to an interface not an implementation (lowers coupling)
+        //makes testing easier
+        public JumpCityMoneyCalculator(MoneyAmounts moneyAmounts, AbstractCalculator calculator,
+            IBillHandler billHandler)
         {
             _moneyAmounts = moneyAmounts;
             _calculator = calculator;
@@ -21,7 +29,8 @@ namespace JumpCityMoneyCalculator
 
         private void JumpCityMoneyCalculator_Load(object sender, EventArgs e)
         {
-            AlertUser("This form is a work in progress and does not represent final product, if there any problems or issues please contact Caleb.");
+            AlertUser(
+                "This form is a work in progress and does not represent final product, if there any problems or issues please contact Caleb.");
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
@@ -48,38 +57,29 @@ namespace JumpCityMoneyCalculator
             _moneyAmounts.OnesAmount = ToIntAndNonNegative(txtOnes.Text);
         }
 
-        // public int ToIntAndNonNegative(string input)
-        // {
-        //     try
-        //     {
-        //         var result = int.Parse(input);
-        //         if (result < 0)
-        //         {
-        //             AlertUser("Please enter positive numerical values,setting entered value to 0");
-        //             result = 0;
-        //         }
-        //
-        //         return result;
-        //     }
-        //     catch (FormatException)
-        //     {
-        //         if (input == string.Empty) return 0;
-        //         AlertUser("Please enter numerical values, setting entered value to 0", "Error");
-        //         return 0;
-        //     }
-        // }
-
         public int ToIntAndNonNegative(string input)
         {
-            if (int.TryParse(input, out var result) && result >= 0) return result;
+            try
+            {
+                var result = int.Parse(input);
+                if (result < 0)
+                {
+                    AlertUser("Please enter positive numerical values,setting entered value to 0");
+                    result = 0;
+                }
 
-            var output = string.IsNullOrEmpty(input) ? "blank" : input;
-
-            AlertUser($"Please enter a positive number: {output} is invalid");
-
-            return 0;
+                return result;
+            }
+            catch (FormatException)
+            {
+                if (input == string.Empty) return 0;
+                AlertUser("Please enter numerical values, setting entered value to 0", "Error");
+                return 0;
+            }
         }
 
+        //default param
+        //static allows for no instance to be created to use method
         private static void AlertUser(string text, string caption = null)
         {
             MessageBox.Show(text, caption);

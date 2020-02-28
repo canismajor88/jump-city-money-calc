@@ -9,24 +9,24 @@ namespace WindowsFormsApp2
     {
         private static readonly UnityContainer Container = new UnityContainer();
 
-        /// <summary>
-        ///     The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ConfigureServices();
+            ConfigureContainer();
             Application.Run(Container.Resolve<JumpCityMoneyCalculator.JumpCityMoneyCalculator>());
         }
 
-        private static void ConfigureServices()
+        private static void ConfigureContainer()
         {
-            Container.RegisterType<Calculator>();
-            Container.RegisterType<BillHandler>();
-            Container.RegisterType<MoneyAmounts>();
+            //new instance gets created each time 
+            Container.RegisterType<AbstractCalculator,Calculator>();
+            Container.RegisterType<IBillHandler, BillHandler>();
+            //create only one instance of money amounts
+            Container.RegisterSingleton<MoneyAmounts>();
         }
     }
 }
