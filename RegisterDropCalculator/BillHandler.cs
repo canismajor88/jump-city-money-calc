@@ -1,6 +1,6 @@
 ﻿namespace RegisterDropCalculator
 {
-    //implementation of IBillHanlder
+    //implementation of IBillHandler
     public class BillHandler : IBillHandler
     {
         private readonly MoneyAmounts _moneyAmounts;
@@ -14,8 +14,9 @@
 
         private void SetTruncatedDropTotal()
         {
-            _truncatedDropTotal = (int)_moneyAmounts.TotalAmount;
+            _truncatedDropTotal = (int) _moneyAmounts.TotalAmount;
         }
+
         private bool RegisterStateCheck()
         {
             var smallBillAmount = 0;
@@ -26,7 +27,8 @@
 
             if (_moneyAmounts.TotalAmount < MoneyAmounts.TargetAmount)
             {
-                _outputText = $"register has less than {MoneyAmounts.TargetAmount} dollars, the register must be fixed.";
+                _outputText =
+                    $"register has less than {MoneyAmounts.TargetAmount} dollars, the register must be fixed.";
 
                 return false;
             }

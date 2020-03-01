@@ -1,7 +1,7 @@
 ﻿namespace RegisterDropCalculator
 {
-    //child of AbstractCalc
-    public class Calculator:AbstractCalculator
+    //child of AbstractCalculator
+    public class Calculator : AbstractCalculator
     {
         private readonly MoneyAmounts _moneyAmounts;
 

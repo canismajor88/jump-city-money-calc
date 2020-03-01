@@ -2,7 +2,6 @@
 {
     public class MoneyAmounts
     {
-
         public const int TargetAmount = 100;
 
         public int DollarCoinAmount { get; set; }
