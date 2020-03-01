@@ -29,8 +29,7 @@ namespace JumpCityMoneyCalculator
 
         private void JumpCityMoneyCalculator_Load(object sender, EventArgs e)
         {
-            AlertUser(
-                "This form is a work in progress and does not represent final product, if there any problems or issues please contact Caleb.");
+            AlertUser("This form is a work in progress and does not represent final product, if there any problems or issues please contact Caleb.");
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
@@ -64,13 +63,13 @@ namespace JumpCityMoneyCalculator
                 var result = int.Parse(input);
                 if (result < 0)
                 {
-                    AlertUser("Please enter positive numerical values,setting entered value to 0");
+                    AlertUser("Please enter positive numerical values,setting entered value to 0","Error");
                     result = 0;
                 }
 
                 return result;
             }
-            catch (FormatException)
+            catch
             {
                 if (input == string.Empty) return 0;
                 AlertUser("Please enter numerical values, setting entered value to 0", "Error");

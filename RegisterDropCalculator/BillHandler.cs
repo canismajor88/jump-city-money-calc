@@ -1,6 +1,6 @@
 ﻿namespace RegisterDropCalculator
 {
-    //child/ implementation of IBillHanlder
+    //implementation of IBillHanlder
     public class BillHandler : IBillHandler
     {
         private readonly MoneyAmounts _moneyAmounts;
@@ -10,9 +10,12 @@
         public BillHandler(MoneyAmounts moneyAmounts)
         {
             _moneyAmounts = moneyAmounts;
-            _truncatedDropTotal = (int) _moneyAmounts.TotalAmount;
         }
 
+        private void SetTruncatedDropTotal()
+        {
+            _truncatedDropTotal = (int)_moneyAmounts.TotalAmount;
+        }
         private bool RegisterStateCheck()
         {
             var smallBillAmount = 0;
@@ -23,8 +26,7 @@
 
             if (_moneyAmounts.TotalAmount < MoneyAmounts.TargetAmount)
             {
-                _outputText =
-                    $"register has less than {MoneyAmounts.TargetAmount} dollars, the register must be fixed.";
+                _outputText = $"register has less than {MoneyAmounts.TargetAmount} dollars, the register must be fixed.";
 
                 return false;
             }
@@ -55,6 +57,8 @@
 
         public string BillAmountsForDrop()
         {
+            SetTruncatedDropTotal();
+            //string concat instead of string interpolation for code readability 
             if (RegisterStateCheck())
                 _outputText = "Take Out " + BillAmountsProcessor(_moneyAmounts.HundredsAmount, 100) + " hundreds, "
                               + BillAmountsProcessor(_moneyAmounts.FiftiesAmount, 50) + " fifties, " +

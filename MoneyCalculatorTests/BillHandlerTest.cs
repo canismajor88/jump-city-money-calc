@@ -13,7 +13,7 @@ namespace MoneyCalculatorTests
         {
             _registerTotal = 114.18;
             var moneyAmounts = TestHelper.BuildMoneyAmounts(0, 0, 20, 64, 40, 78, 1, 1, 0, 2, 9, 35, _registerTotal);
-
+            //system under test(sut)
             var sut = new BillHandler(moneyAmounts);
             var expected = "Take Out 0 hundreds, 0 fifties, 0 twenties, 1 tens, 0 fives,and 4 ones.";
             var actual = sut.BillAmountsForDrop();

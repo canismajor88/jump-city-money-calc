@@ -23,6 +23,7 @@ namespace WindowsFormsApp2
         private static void ConfigureContainer()
         {
             //new instance gets created each time 
+            //(interface/abstract class, concrete class implementation
             Container.RegisterType<AbstractCalculator,Calculator>();
             Container.RegisterType<IBillHandler, BillHandler>();
             //create only one instance of money amounts
